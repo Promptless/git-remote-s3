@@ -167,7 +167,7 @@ class S3Remote:
         logger.info(f"Removing remote ref {remote_ref}")
         try:
             objects_to_delete = self.s3.list_objects_v2(
-                Bucket=self.bucket, Prefix=f"{self.prefix}/{remote_ref}"
+                Bucket=self.bucket, Prefix=f"{self.prefix}/{remote_ref}/"
             ).get("Contents", [])
             if (
                 self.uri_scheme == UriScheme.S3
